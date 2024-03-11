@@ -1,13 +1,17 @@
 from fastapi import FastAPI
+from fastapi.requests import Request
 
-app = FastAPI()
+import yggdrasil
+
+app = FastAPI(
+    title="AuthNode"
+)
+
+# initialize FastAPI app
+from config import init
+
+init(app)
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(yggdrasil.app, prefix="/api", tags=["Yggdrasil API"])
 
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
