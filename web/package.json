@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
   },

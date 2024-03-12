@@ -1,10 +1,10 @@
 from pymongo import MongoClient
 
-mongo = MongoClient("mongodb://localhost:27017/")
+from config import Config
 
-DATABASE = "AuthNode"
-PREFIX = "an_"
+mongo = MongoClient(Config.MONGO_URI)
 
 
 def db(table: str):
-    return mongo[DATABASE][f"{PREFIX}{table}"]
+
+    return mongo[Config.MONGO_DBNAME][f"{Config.MONGO_PREFIX}{table}"]

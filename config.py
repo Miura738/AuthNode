@@ -1,3 +1,21 @@
+
+class Config(object):
+    MONGO_URI = "mongodb://localhost:27017/"
+    MONGO_DBNAME = "AuthNode"
+    MONGO_PREFIX = "an_"
+
+
+
+
+
+
+
+
+
+
+
+
+
 from fastapi import FastAPI
 from response import ErrorResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException

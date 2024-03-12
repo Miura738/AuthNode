@@ -1,6 +1,8 @@
 import { createRouter,createWebHashHistory } from 'vue-router'
 import HelloWorld from "./components/HelloWorld.vue";
-import LoginView from "./view/LoginView.vue";
+import AuthView from "./view/AuthView.vue";
+import LoginComponent from "./view/AuthView/LoginComponent.vue";
+import IndexComponent from "./view/AuthView/IndexComponent.vue";
 
 const routes = [
   {
@@ -9,8 +11,15 @@ const routes = [
     component: HelloWorld
   },
   {
-    path: "/login",
-    component: LoginView
+    path: "/auth",
+    component: AuthView,
+    children: [
+      {path: "",component: IndexComponent},
+      {
+        path: "/login",
+        component: LoginComponent
+      }
+    ]
   }
 ]
 
