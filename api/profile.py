@@ -28,10 +28,10 @@ async def update_profileName(request: Request, uuid: str):
 
     TokenData = db("tokens").find_one({"token": accessToken, "type": "accessToken", "uid": userId})
     if TokenData is None:
-        return ErrorResponse(status_code=403, cause="No login!")
+        raise ErrorResponse(status_code=403, cause="No login!")
     UserData = db("users").find_one({"_id": TokenData["uid"]})
     if UserData is None:
-        return ErrorResponse(status_code=403, cause="Profile Not Found!")
+        raise ErrorResponse(status_code=403, cause="Profile Not Found!")
 
     CheckLocalUser = db("users").find_one({"username": profileName})
     if CheckLocalUser:

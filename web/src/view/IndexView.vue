@@ -6,6 +6,7 @@ import AnButton from "../components/AnButton.vue";
 import axios from "axios";
 import LoadingComponent from "../components/LoadingComponent.vue";
 import ProfileComponent from "./IndexView/ProfileComponent.vue";
+import SkinComponent from "./IndexView/SkinComponent.vue";
 
 const router = useRouter();
 
@@ -16,7 +17,6 @@ const UserEmail = ref(null);
 const UserSkin = ref("./assets/6ea6a47358157ac85c050760d26f9cbae058b370811ef1927bc55009d5b81f4f.png");
 const Loading = ref(true);
 
-onMounted(()=> {
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {
     axios.post("/api/yggdrasil/authserver/validate", {
@@ -34,8 +34,6 @@ onMounted(()=> {
   }else {
     router.replace("/auth")
   }
-
-})
 
 function Logout() {
   Loading.value = true;
@@ -64,8 +62,7 @@ function push(uri) {
     <div class="w-full flex flex-col gap-3">
       <ProfileComponent />
 
-      <div class="w-full shadow px-5 py-6 shadow-gray-400 bg-white">
-      </div>
+      <SkinComponent />
     </div>
 
     <an-button @click="Logout" class="mt-8 w-full">Logout</an-button>
