@@ -32,3 +32,6 @@ async def read_root(path: str = "index.html"):
         return FileResponse(path)
     else:
         return FileResponse("web/dist/index.html")
+
+
+if __name__ == '__main__':

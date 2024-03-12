@@ -48,7 +48,7 @@ function push(uri) {
 <template>
   <div class="w-full h-full flex flex-col p-1 overflow-auto">
     <div class="w-full shadow px-5 py-6 shadow-gray-400 bg-white mb-8">
-      <div class="flex">
+      <div class="flex w-full overflow-auto">
         <img class="w-12 h-12 mr-4" :src='UserSkin'/>
         <div class="flex flex-col flex-grow justify-center">
           <div class="font-medium text-lg">{{UserName}}</div>

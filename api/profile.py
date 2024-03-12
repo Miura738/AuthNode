@@ -33,7 +33,7 @@ async def update_profileName(request: Request, uuid: str):
     if UserData is None:
         raise ErrorResponse(status_code=403, cause="Profile Not Found!")
 
-    CheckLocalUser = db("users").find_one({"username": profileName})
+    CheckLocalUser = db("users").find_one({"username": {"$regex": f"^{profileName}$", "$options": "i"}})
     if CheckLocalUser:
         raise ErrorResponse(status_code=400, cause="Username is already exits!")
     CheckMojangUser = requests.get(f"https://api.mojang.com/users/profiles/minecraft/{profileName}")

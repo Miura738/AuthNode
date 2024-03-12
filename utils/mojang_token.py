@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     import requests
 
-    code = "M.C510_SN1.2.U.188d48e3-39e5-8757-e08a-93a14fab0504"
+    code = "M.C510_BAY.2.U.434096df-05fc-035b-a766-35b459b509af"
     url = f"https://login.live.com/oauth20_token.srf?client_id=00000000402b5328&code={code}&grant_type=authorization_code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf"
 
     headers = {
