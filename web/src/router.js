@@ -1,30 +1,36 @@
-import { createRouter,createWebHashHistory } from 'vue-router'
+import { createRouter,createWebHistory } from 'vue-router'
 import HelloWorld from "./components/HelloWorld.vue";
 import AuthView from "./view/AuthView.vue";
 import LoginComponent from "./view/AuthView/LoginComponent.vue";
-import IndexComponent from "./view/AuthView/IndexComponent.vue";
+import LoginIndexComponent from "./view/AuthView/IndexComponent.vue";
+import IndexView from "./view/IndexView.vue";
+import RegisterComponent from "./view/AuthView/RegisterComponent.vue";
 
 const routes = [
   {
     path: '/',
     name: 'root',
-    component: HelloWorld
+    component: IndexView
   },
   {
     path: "/auth",
     component: AuthView,
     children: [
-      {path: "",component: IndexComponent},
+      {path: "",component: LoginIndexComponent},
       {
         path: "/login",
         component: LoginComponent
+      },
+      {
+        path: "/join",
+        component: RegisterComponent
       }
     ]
   }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 //

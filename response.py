@@ -9,7 +9,7 @@ class ErrorResponse(Exception):
         detail: typing.Optional[str] = None,
         errorCode: typing.Optional[dict] = None,
         errorMessage: typing.Optional[dict] = None,
-        cause: typing.Optional[dict] = None,
+        cause: typing.Optional[str] = None,
     ) -> None:
         if detail is None:
             detail = http.HTTPStatus(status_code).phrase

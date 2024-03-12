@@ -26,8 +26,8 @@ async def authenticate(request: Request, useSHA1: bool = True):
 
     UserData = db("users").find_one({"email": {"$regex": f"^{username}$", "$options": "i"}})
     if UserData is None: UserData = db("users").find_one({"username": {"$regex": f"^{username}$", "$options": "i"}})
-    if UserData is None: raise ErrorResponse(status_code=403, cause="Unknow Email or Username")
-    if str(UserData["password"]) != password: raise ErrorResponse(status_code=403, cause="Password Error")
+    if UserData is None: raise ErrorResponse(status_code=403, cause="Unknow email or username")
+    if str(UserData["password"]) != password: raise ErrorResponse(status_code=403, cause="Password error")
 
     UserProfile = serialize_profile(UserData)
 

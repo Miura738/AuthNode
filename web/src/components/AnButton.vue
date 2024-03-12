@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<button class="w-full h-7 bg-emerald-500 text-white text-xs uppercase transition-all
+<button class="w-full min-h-7 bg-emerald-500 text-white text-xs uppercase transition-all
         relative overflow-hidden btn focus:outline-0 focus:shadow-2xl focus:shadow-black shadow-black"><slot /></button>
 </template>
 

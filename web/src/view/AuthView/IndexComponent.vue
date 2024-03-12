@@ -3,10 +3,20 @@
 
 import {useRouter} from "vue-router";
 import AnButton from "../../components/AnButton.vue";
+import axios from "axios";
 const router = useRouter();
 function push(uri) {
   setTimeout(()=>{router.push(uri)},500)
 }
+
+const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    axios.post("/api/yggdrasil/authserver/validate", {
+      accessToken: accessToken
+    }).then(()=>{
+    router.replace("/")
+    })
+  }
 
 </script>
 
