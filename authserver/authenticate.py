@@ -23,6 +23,7 @@ async def authenticate(request: Request, useSHA1: bool = True):
     password = hashlib.sha256(password.encode("utf-8"))
     password = password.hexdigest()
     requestUser = request_data.get("requestUser")
+    clientToken = request_data.get("clientToken")
 
     UserData = db("users").find_one({"email": {"$regex": f"^{username}$", "$options": "i"}})
     if UserData is None: UserData = db("users").find_one({"username": {"$regex": f"^{username}$", "$options": "i"}})
@@ -33,7 +34,7 @@ async def authenticate(request: Request, useSHA1: bool = True):
 
     result = {
         "accessToken": create_token(UserData),
-        "clientToken": None,
+        "clientToken": clientToken,
         "availableProfiles": [
             UserProfile
         ],
@@ -41,5 +42,7 @@ async def authenticate(request: Request, useSHA1: bool = True):
     }
     if requestUser:
         result["user"] = UserProfile
+
+    print(result)
 
     return result
