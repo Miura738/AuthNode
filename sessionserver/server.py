@@ -36,6 +36,8 @@ async def getMinecraftHasJoined(username: str, serverId: str, ip: str = None):
             TexturesData = json.loads(base64.b64decode(response["properties"][0]["value"]).decode("utf-8"))
             TexturesData["timestamp"] = int(time.time() * 1000)
             if response["id"] == "46b6496f7e104a33abd168921bd4efbc":
+                response["id"] = "a52dc48825554c438428-614b56790327"
+                TexturesData["profileId"] = "a52dc48825554c438428-614b56790327"
                 TexturesData["textures"]["CAPE"] = {}
                 TexturesData["textures"]["CAPE"][
                     "url"] = "https://textures.minecraft.net/texture/bcf5cf5bfd72ac01b38bbe5030e105cc6de272b439c9623edda5db64f5e95131"

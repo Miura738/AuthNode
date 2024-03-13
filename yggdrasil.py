@@ -71,6 +71,8 @@ async def root(request: Request):
         },
         "skinDomains": [
             "*",
+            ".minecraft.net",
+            ".mojang.com",
             host
         ],
         "signaturePublickey": public_key.decode("utf-8")
