@@ -28,8 +28,10 @@ function Submit(event) {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       "Content-Type": 'multipart/form-data'
     }
-  }).then(() => {
-    alert("1")
+  }).then(r => {
+    const ApiData = r.data
+      localStorage.setItem("textures",ApiData["properties"][0]["value"])
+    location.reload()
   }).catch(
       error => {
         try {
@@ -60,7 +62,7 @@ function Submit(event) {
 
         <div class="flex w-full mt-3">
           <div class="flex items-center">
-            <input required type="radio" id="classic" name="model" value="">
+            <input required type="radio" id="classic" name="model" value="classic">
             <label for="classic" class="text-sm uppercase ml-1">Classic</label>
           </div>
           <div class="flex items-center ml-5">

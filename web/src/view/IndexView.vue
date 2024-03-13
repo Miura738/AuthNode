@@ -7,6 +7,7 @@ import axios from "axios";
 import LoadingComponent from "../components/LoadingComponent.vue";
 import ProfileComponent from "./IndexView/ProfileComponent.vue";
 import SkinComponent from "./IndexView/SkinComponent.vue";
+import LinkComponent from "./IndexView/LinkComponent.vue";
 
 const router = useRouter();
 
@@ -46,8 +47,8 @@ function push(uri) {
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col p-1 overflow-auto">
-    <div class="w-full shadow px-5 py-6 shadow-gray-400 bg-white mb-8">
+  <div class="w-full h-full flex flex-col p-1 overflow-y-auto">
+    <div class="w-full shadow px-5 py-6 shadow-gray-400 bg-white mb-3">
       <div class="flex w-full overflow-auto">
         <img class="w-12 h-12 mr-4" :src='UserSkin'/>
         <div class="flex flex-col flex-grow justify-center">
@@ -59,6 +60,9 @@ function push(uri) {
       <div class="mt-3 text-xs text-gray-400 overflow-x-auto">{{UserId}}</div>
 
     </div>
+
+    <LinkComponent />
+
     <div class="w-full flex flex-col gap-3">
       <ProfileComponent />
 

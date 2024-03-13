@@ -39,8 +39,7 @@ async def getMinecraftHasJoined(username: str, serverId: str, ip: str = None):
                 TexturesData["textures"]["CAPE"] = {}
                 TexturesData["textures"]["CAPE"][
                     "url"] = "https://textures.minecraft.net/texture/bcf5cf5bfd72ac01b38bbe5030e105cc6de272b439c9623edda5db64f5e95131"
-            if response["id"] == "d7b7b10f27a540e5be65069d2f6a59b9" or response[
-                'id'] == '31c93266d0de4eaa83c548576ee060da':
+            if response["id"] == "d7b7b10f27a540e5be65069d2f6a59b9" or response['id'] == '31c93266d0de4eaa83c548576ee060da':
                 TexturesData["textures"]["CAPE"] = {}
                 TexturesData["textures"]["CAPE"][
                     "url"] = "http://textures.minecraft.net/texture/afd553b39358a24edfe3b8a9a939fa5fa4faa4d9a9c3d6af8eafb377fa05c2bb"
